@@ -52,6 +52,26 @@ Class User {
 
   }
 
+  function connectUser(){
+
+    $error = false;
+    try{
+      $req = $GLOBALS["db"]->prepare( "SELECT * FROM " . DB_USER . " WHERE Email = :email AND Pass = :password" );
+      $req->execute([
+        'email' => (string) $this->_email,
+        'password' => (string) $this->_password,
+      ]);
+      $result = $req->fetch();
+      return $result;
+
+      $this->_id = $GLOBALS["db"]->lastInsertId();
+    } catch ( PDOException $e) {
+      $error = $GLOBALS["db"]->connect_error;
+    }
+    return $error;
+
+  }
+
 }
 
 

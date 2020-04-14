@@ -36,10 +36,10 @@ if( ! empty($data["action"]) && $data["action"] != "" ){
       $response = ControllerUser::createUser($data);
       break;
     case 'connectUser':
-      // code...
+      $response = ControllerUser::connectUser($data);
       break;
-    case 'editUser':
-      // code...
+    case 'getListUser':
+      $response = ControllerUser::getListUser($data);
       break;
     case 'editDaily':
       // code...

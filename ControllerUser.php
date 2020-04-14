@@ -34,7 +34,8 @@ Class ControllerUser{
       $response['status'] = "OK";
       $response['message'] = (array) $user;
     }else{
-      $response['status'] = "Erreur dans l'insertion";
+      $response['status'] = "KO";
+      $response['status_message'] = "Erreur dans l'insertion";
       $response['message'] = $error;
     }
 
@@ -42,33 +43,34 @@ Class ControllerUser{
 
   }
 
-  static public function connectUser(){
+  static public function connectUser($data){
+    $user = self::linkUser($data);
 
+    $user = $user->connectUser();
+
+    if( $user != "" ){
+      $response['status'] = "OK";
+      $response['message'] = (array) $user;
+    }else{
+      $response['status'] = "KO";
+      $response['status_message'] = "User introuvable";
+      $response['message'] = "User introuvable";
+    }
+
+    return $response;
   }
 
-
-
-
-  static public function render( $module, $view, $data = [] ){
-    extract( $data );
-    require( ROOT_DIR . '/module/' . $module . '/view/'. str_replace('.', '/', $view) . '.view.php' );
-  }
-
-  // static public function display_limitlimit_page(){
-  //   self::render( 'limitlimit', 'home-page\main' );
-  // }
-  //
-  // static public function display_content_limitlimit_page(){
-  //   self::render( 'limitlimit', 'home-page\content' );
-  // }
-
-  static public function get( $args ){
+  static public function getListUser($data){
+    $role = !empty($data["role"])  ? (string) $data["role"] : "";
+    $role = $role == "P" || $role == "M" ? $role : ""; // M = homme / F = femme
+    $text = $role != "" ? " WHERE role = :role" : "";
     try{
-      $req = $GLOBALS["db"]->prepare( "SELECT * FROM " . DB_GAMECURRENT . " WHERE id = :id" );
+      $req = $GLOBALS["db"]->prepare( "SELECT * FROM " . DB_USER . $text );
       $req->execute([
-        'id' => (int) $args['id'],
+        'role' => $role,
       ]);
-      return $req->fetch();
+      return $req->fetchAll();
+
     } catch ( PDOException $e) {
       echo '<pre>'; print_r( $GLOBALS["db"]->connect_error ); echo '</pre>';exit;
     }

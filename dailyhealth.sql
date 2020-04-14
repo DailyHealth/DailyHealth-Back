@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 14 Avril 2020 à 15:44
+-- Généré le :  Mar 14 Avril 2020 à 17:36
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -67,9 +67,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `Age` int(11) NOT NULL,
   `Height` float NOT NULL,
   `Weight` float NOT NULL,
-  `Role` int(11) NOT NULL,
+  `Role` varchar(255) NOT NULL,
   `IdMedecin` int(11) NOT NULL,
-  PRIMARY KEY (`idUser`)
+  PRIMARY KEY (`idUser`),
+  UNIQUE KEY `Email` (`Email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

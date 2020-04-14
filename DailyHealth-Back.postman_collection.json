@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "835de462-6b22-4a9c-ae68-643e88b14186",
+		"name": "DailyHealth-Back",
+		"description": "dzqdqzd",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Création USER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"action\":\"createUser\",\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8050/index.php/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"index.php",
+						""
+					]
+				},
+				"description": "Créer un utilisateur"
+			},
+			"response": []
+		},
+		{
+			"name": "Connection USER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"action\":\"connectUser\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8050/index.php/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"index.php",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ListUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n\t\"action\":\"getListUser\",\n\t\"role\":\"\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8050/index.php/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"index.php",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

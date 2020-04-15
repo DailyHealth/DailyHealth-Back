@@ -14,8 +14,9 @@ Class ControllerUser{
     $height    = !empty($data["height"]) ? (double) $data["height"] : "180";
     $weight    = !empty($data["weight"]) ? (double) $data["weight"] : "80";
     $role      = !empty($data["role"]) ? (string) $data["role"] : "P"; // M = Medecin / P = Patient
+    $medecinid = !empty($data["medecinid"]) ? (int) $data["medecinid"] : "0"; // M = Medecin / P = Patient
 
-    $user = new User($type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role);
+    $user = new User($type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid);
 
     return $user;
   }
@@ -76,6 +77,20 @@ Class ControllerUser{
     }
   }
 
+  static public function getUser($data){
+    $id = !empty($data["iduser"])  ? (int) $data["iduser"] : 0;
+
+    try{
+      $req = $GLOBALS["db"]->prepare( "SELECT * FROM " . DB_USER . " WHERE idUser = :iduser" );
+      $req->execute([
+        'iduser' => $id,
+      ]);
+      return $req->fetchAll();
+
+    } catch ( PDOException $e) {
+      echo '<pre>'; print_r( $GLOBALS["db"]->connect_error ); echo '</pre>';exit;
+    }
+  }
 
 }
 

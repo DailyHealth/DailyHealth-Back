@@ -41,10 +41,9 @@ function redirectApi( $data ){
       case 'getListUser':
         $response = ControllerUser::getListUser($data);
         break;
-      case 'editDaily':
-        // code...
+      case 'getUser':
+        $response = ControllerUser::getUser($data);
         break;
-
       default:
         // code...
         break;

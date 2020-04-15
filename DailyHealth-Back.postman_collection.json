@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\"\n}\n",
+					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexisas.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\",\n\t\"medecinid\":\"1\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -81,7 +81,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"role\":\"M\"\n}\n",
+					"raw": "{\n\t\"role\":\"\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -98,6 +98,38 @@
 					"path": [
 						"api",
 						"GetListUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"iduser\":\"1\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8050/api/getUser.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8050",
+					"path": [
+						"api",
+						"getUser.php"
 					]
 				}
 			},

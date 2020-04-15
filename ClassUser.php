@@ -13,8 +13,9 @@ Class User {
   private $_height = 0.0; // Float
   private $_weight; // Float
   private $_role; // string - M = Medecin / P = Patient
+  private $_medecinid;
 
-  function User($type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role){
+  function User($type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid){
     $this->_type = $type;
     $this->_firstName = $firstName;
     $this->_lastName = $lastName;
@@ -24,6 +25,7 @@ Class User {
     $this->_height = $height;
     $this->_weight = $weight;
     $this->_role = $role;
+    $this->_medecinid = $medecinid;
   }
 
   function createUser(){
@@ -31,7 +33,7 @@ Class User {
     $error = false;
     try{
       $req = $GLOBALS["db"]->prepare( "INSERT INTO " . DB_USER . " ( idUser, type, FirstName, LastName, Email, Pass, Age, Height, Weight, Role, IdMedecin )
-      VALUES ( NULL, :type, :firstName, :lastName, :email, :password, :age, :height, :weight, :role, 0 )" );
+      VALUES ( NULL, :type, :firstName, :lastName, :email, :password, :age, :height, :weight, :role, :medecinid )" );
       $req->execute([
             'type' => $this->_type,
             'firstName' => $this->_firstName,
@@ -41,7 +43,8 @@ Class User {
             'age' => $this->_age,
             'height' => $this->_height,
             'weight' => $this->_weight,
-            'role' => $this->_role
+            'role' => $this->_role,
+            'medecinid' => $this->_medecinid
         ]);
 
       $this->_id = $GLOBALS["db"]->lastInsertId();

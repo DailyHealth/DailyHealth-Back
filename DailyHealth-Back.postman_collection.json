@@ -19,7 +19,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n\t\"action\":\"createUser\",\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\"\n}\n",
+					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -27,15 +27,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8050/index.php/",
+					"raw": "http://localhost:8050/api/CreateUser.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8050",
 					"path": [
-						"index.php",
-						""
+						"api",
+						"CreateUser.php"
 					]
 				},
 				"description": "Créer un utilisateur"
@@ -49,7 +49,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n\t\"action\":\"connectUser\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\"\n}\n",
+					"raw": "{\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -57,15 +57,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8050/index.php/",
+					"raw": "http://localhost:8050/api/ConnectUser.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8050",
 					"path": [
-						"index.php",
-						""
+						"api",
+						"ConnectUser.php"
 					]
 				}
 			},
@@ -81,7 +81,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n\t\"action\":\"getListUser\",\n\t\"role\":\"\"\n}\n",
+					"raw": "{\n\t\"role\":\"M\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -89,15 +89,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8050/index.php/",
+					"raw": "http://localhost:8050/api/GetListUser.php",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8050",
 					"path": [
-						"index.php",
-						""
+						"api",
+						"GetListUser.php"
 					]
 				}
 			},

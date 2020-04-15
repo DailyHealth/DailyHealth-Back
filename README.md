@@ -1,3 +1,4 @@
-Hello the world
+- Lancer Wamp
 
-php -s localhost:8080
+- Ouvrir un cmd à la racine du projet :
+php -S localhost:8050

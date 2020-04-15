@@ -24,34 +24,38 @@ header("Content-Type: application/json; charset=UTF-8");
 require("/ControllerUser.php");
 
 
-$data = json_decode( file_get_contents('php://input'), true );
-$response = array();
+function redirectApi( $data ){
+  $response = array();
 
 
-if( ! empty($data["action"]) && $data["action"] != "" ){
-  $GLOBALS["db"] = connect_to_db();
+  if( ! empty($data["action"]) && $data["action"] != "" ){
+    $GLOBALS["db"] = connect_to_db();
 
-  switch ($data["action"]) {
-    case 'createUser':
-      $response = ControllerUser::createUser($data);
-      break;
-    case 'connectUser':
-      $response = ControllerUser::connectUser($data);
-      break;
-    case 'getListUser':
-      $response = ControllerUser::getListUser($data);
-      break;
-    case 'editDaily':
-      // code...
-      break;
+    switch ($data["action"]) {
+      case 'createUser':
+        $response = ControllerUser::createUser($data);
+        break;
+      case 'connectUser':
+        $response = ControllerUser::connectUser($data);
+        break;
+      case 'getListUser':
+        $response = ControllerUser::getListUser($data);
+        break;
+      case 'editDaily':
+        // code...
+        break;
 
-    default:
-      // code...
-      break;
+      default:
+        // code...
+        break;
+    }
+  }else{
+    $response['status'] = "KO";
+    $response['message'] = "Manque un attribut action dans la requete";
   }
-}else{
-  $response['status'] = "KO";
-  $response['message'] = "Manque un attribut action dans la requete";
+
+  echo json_encode($response);
+
 }
 
 
@@ -68,7 +72,6 @@ function connect_to_db(){
   return $db;
 }
 
-echo json_encode($response);
 
 
 

@@ -62,14 +62,25 @@ Class ControllerUser{
   }
 
   static public function getListUser($data){
-    $role = !empty($data["role"])  ? (string) $data["role"] : "";
-    $role = $role == "P" || $role == "M" ? $role : ""; // M = homme / F = femme
-    $text = $role != "" ? " WHERE role = :role" : "";
+
+    $text = "";
+    $medecinid = 0;
+    $role = "";
+    $param = array();
+    if( $data['medecinid'] ){
+      $medecinid = $data["medecinid"]; // M = homme / F = femme
+      $text = " WHERE IdMedecin = :medecinid";
+      $param['medecinid'] = $medecinid;
+    }else{
+      $role = $data["role"] == "P" || $data["role"] == "M" ? $data["role"] : ""; // M = homme / F = femme
+      $text = $role != "" ? " WHERE role = :role" : "";
+      $param['role'] = $role;
+    }
+
+
     try{
       $req = $GLOBALS["db"]->prepare( "SELECT * FROM " . DB_USER . $text );
-      $req->execute([
-        'role' => $role,
-      ]);
+      $req->execute($param);
       return $req->fetchAll();
 
     } catch ( PDOException $e) {

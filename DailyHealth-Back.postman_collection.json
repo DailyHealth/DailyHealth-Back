@@ -13,13 +13,13 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexisas.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\",\n\t\"medecinid\":\"1\"\n}\n",
+					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"

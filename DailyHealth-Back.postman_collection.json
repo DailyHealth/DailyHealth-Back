@@ -13,13 +13,13 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
+						"value": "application/json",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\"\n}\n",
+					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexisas.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\",\n\t\"medecinid\":\"1\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -73,11 +73,8 @@
 		},
 		{
 			"name": "Get ListUser",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -89,7 +86,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8050/api/GetListUser.php",
+					"raw": "http://localhost:8050/api/GetListUser.php?medecinid=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -98,6 +95,12 @@
 					"path": [
 						"api",
 						"GetListUser.php"
+					],
+					"query": [
+						{
+							"key": "medecinid",
+							"value": "1"
+						}
 					]
 				}
 			},
@@ -105,15 +108,12 @@
 		},
 		{
 			"name": "GetUser",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"iduser\":\"1\"\n}\n",
+					"raw": "{\n\t\"iduser\":\"2\"\n}\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -121,7 +121,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8050/api/getUser.php",
+					"raw": "http://localhost:8050/api/getUser.php?iduser=1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -130,6 +130,12 @@
 					"path": [
 						"api",
 						"getUser.php"
+					],
+					"query": [
+						{
+							"key": "iduser",
+							"value": "1"
+						}
 					]
 				}
 			},

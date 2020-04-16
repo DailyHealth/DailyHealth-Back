@@ -7,139 +7,321 @@
 	},
 	"item": [
 		{
-			"name": "Création USER",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexisas.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\",\n\t\"medecinid\":\"1\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "User",
+			"item": [
+				{
+					"name": "Création USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\":\"M\",\n\t\"firstname\":\"Alexis\",\n\t\"lastname\":\"Guetat\",\n\t\"email\":\"Alexisas.Guetat@gmail.com\",\n\t\"password\":\"abc123\",\n\t\"age\":\"40\",\n\t\"height\":\"200\",\n\t\"weight\":\"100\",\n\t\"role\":\"P\",\n\t\"medecinid\":\"1\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/CreateUser.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"CreateUser.php"
+							]
+						},
+						"description": "Créer un utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "Connection USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/ConnectUser.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"ConnectUser.php"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8050/api/CreateUser.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8050",
-					"path": [
-						"api",
-						"CreateUser.php"
-					]
+				{
+					"name": "Get ListUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/GetListUser.php?medecinid=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"GetListUser.php"
+							],
+							"query": [
+								{
+									"key": "medecinid",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
 				},
-				"description": "Créer un utilisateur"
-			},
-			"response": []
+				{
+					"name": "GetUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/getUser.php?iduser=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"getUser.php"
+							],
+							"query": [
+								{
+									"key": "iduser",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"iduser\":6,\n\t\"firstname\":\"Staae\",\n\t\"lastname\":\"Ste\",\n\t\"email\":\"Ste.Guetat@gmail.com\",\n\t\"password\":\"abczd3\",\n\t\"age\":\"401\",\n\t\"height\":\"202\",\n\t\"weight\":\"103\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/EditUser.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"EditUser.php"
+							]
+						},
+						"description": "edit user"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Connection USER",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"email\":\"Alexiss.Guetat@gmail.com\",\n\t\"password\":\"abc123\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+			"name": "DailyStatut",
+			"item": [
+				{
+					"name": "CreateDailyStatut",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"temperature\":37.5,\n\t\"poux\":150,\n\t\"fatigue\":2,\n\t\"mood\":\"En pleine forme\",\n\t\"patientid\":\"6\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/CreateDailyStatut.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"CreateDailyStatut.php"
+							]
+						},
+						"description": "zdqd"
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8050/api/ConnectUser.php",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8050",
-					"path": [
-						"api",
-						"ConnectUser.php"
-					]
+				{
+					"name": "GetDailyStatut",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/getDailyStatut.php?patientid=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"getDailyStatut.php"
+							],
+							"query": [
+								{
+									"key": "patientid",
+									"value": "6"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Get ListUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"role\":\"\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Observation",
+			"item": [
+				{
+					"name": "CreateObservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"temperature\":37.5,\n\t\"subject\":\"petite toux\",\n\t\"content\":\"mais ça va\",\n\t\"patientid\":\"12\",\n\t\"medecinid\":\"15\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/CreateObservation.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"CreateObservation.php"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8050/api/GetListUser.php?medecinid=1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8050",
-					"path": [
-						"api",
-						"GetListUser.php"
-					],
-					"query": [
-						{
-							"key": "medecinid",
-							"value": "1"
+				{
+					"name": "GetDailyStatut Copy",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/getObservation.php?patientid=12",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"getObservation.php"
+							],
+							"query": [
+								{
+									"key": "patientid",
+									"value": "12"
+								}
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "GetUser",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"iduser\":\"2\"\n}\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8050/api/getUser.php?iduser=1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8050",
-					"path": [
-						"api",
-						"getUser.php"
-					],
-					"query": [
-						{
-							"key": "iduser",
-							"value": "1"
-						}
-					]
-				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}

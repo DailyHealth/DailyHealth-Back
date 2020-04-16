@@ -15,7 +15,8 @@ Class User {
   private $_role; // string - M = Medecin / P = Patient
   private $_medecinid;
 
-  function User($type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid){
+  function User($id, $type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid){
+    $this->_id = $id;
     $this->_type = $type;
     $this->_firstName = $firstName;
     $this->_lastName = $lastName;
@@ -72,7 +73,38 @@ Class User {
       $error = $GLOBALS["db"]->connect_error;
     }
     return $error;
+  }
 
+  function editUser(){
+
+    $error = false;
+    try{ // Id - Type - Role - IdMedecin = Non modifiable
+      $req = $GLOBALS["db"]->prepare( "UPDATE " . DB_USER . " SET FirstName = :firstName, LastName = :lastName, Email = :email, Pass = :password, Age = :age, Height = :height, Weight = :weight WHERE idUser = :iduser" );
+      $req->execute([
+        'iduser' => $this->_id,
+        'firstName' => $this->_firstName,
+        'lastName' => $this->_lastName,
+        'email' => $this->_email,
+        'password' => $this->_password,
+        'age' => $this->_age,
+        'height' => $this->_height,
+        'weight' => $this->_weight,
+      ]);
+
+      return true;
+    } catch ( PDOException $e) {
+      $error = $GLOBALS["db"]->connect_error;
+      echo '<pre>'; print_r( $error ); echo '</pre>';exit;
+    }
+    return $error;
+  }
+
+  function getId(){
+    return $this->_id;
+  }
+
+  function getName(){
+    return $this->_firstName;
   }
 
 }

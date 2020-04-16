@@ -8,7 +8,7 @@ define( 'DB_PASS', "" );
 
 define( 'DB_USER', "user" );
 define( 'DB_DAILY', "dailystatut" );
-define( 'DB_NOTE', "note" );
+define( 'DB_OBSERVATION', "observation" );
 
 // ---------------------------- HEADER ------------------------
 /*header("Access-Control-Allow-Origin: *");
@@ -22,6 +22,8 @@ header("Content-Type: application/json; charset=UTF-8");
 // ---------------------------- REQUIRE FILE ------------------------
 
 require("/ControllerUser.php");
+require("/ControllerDailyStatut.php");
+require("/ControllerObservation.php");
 
 
 function redirectApi( $data ){
@@ -41,8 +43,20 @@ function redirectApi( $data ){
       case 'getListUser':
         $response = ControllerUser::getListUser($data);
         break;
-      case 'getUser':
-        $response = ControllerUser::getUser($data);
+      case 'editUser':
+        $response = ControllerUser::editUser($data);
+        break;
+      case 'createDailyStatut':
+        $response = ControllerDailyStatut::createDailyStatut($data);
+        break;
+      case 'getDailyStatut':
+        $response = ControllerDailyStatut::getDailyStatut($data);
+        break;
+      case 'createObservation':
+        $response = ControllerObservation::createObservation($data);
+        break;
+      case 'getObservation':
+        $response = ControllerObservation::getObservation($data);
         break;
       default:
         // code...

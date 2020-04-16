@@ -5,6 +5,7 @@ include("/ClassUser.php");
 Class ControllerUser{
 
   static public function linkUser($data){
+    $id      = !empty($data["id"]) ? (string) $data["id"] : "0"; // M = homme / F = femme
     $type      = !empty($data["type"]) ? (string) $data["type"] : "M"; // M = homme / F = femme
     $firstName = !empty($data["firstname"]) ? (string) $data["firstname"] : "No FirstName";
     $lastName  = !empty($data["lastname"]) ? (string) $data["lastname"] : "No LastName";
@@ -16,7 +17,7 @@ Class ControllerUser{
     $role      = !empty($data["role"]) ? (string) $data["role"] : "P"; // M = Medecin / P = Patient
     $medecinid = !empty($data["medecinid"]) ? (int) $data["medecinid"] : "0"; // M = Medecin / P = Patient
 
-    $user = new User($type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid);
+    $user = new User($id, $type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid);
 
     return $user;
   }
@@ -96,11 +97,47 @@ Class ControllerUser{
       $req->execute([
         'iduser' => $id,
       ]);
-      return $req->fetchAll();
+
+      $datadb = $req->fetch();
+
+      return array(
+        'id' => $datadb['idUser'],
+        'type' => $datadb['type'],
+        'firstname' => $datadb['FirstName'],
+        'lastname' => $datadb['LastName'],
+        'email' => $datadb['Email'],
+        'password' => $datadb['Pass'],
+        'age' => $datadb['Age'],
+        'height' => $datadb['Height'],
+        'weight' => $datadb['Weight'],
+        'role' => $datadb['Role'],
+        'medecinid' => $datadb['IdMedecin']
+      );
+      return $req->fetch();
 
     } catch ( PDOException $e) {
       echo '<pre>'; print_r( $GLOBALS["db"]->connect_error ); echo '</pre>';exit;
     }
+  }
+
+  static public function editUser($data){
+    $datauserdb = ControllerUser::getUser($data);
+
+    if( $datauserdb['id'] == "" ){
+      echo '<pre>'; print_r( 'Utilisateur introuvable' ); echo '</pre>';exit;
+    }else {
+      // code...
+    }
+
+    $result = array_merge($datauserdb, $data);
+
+    $user = self::linkUser($result);
+    $user->editUser();
+
+    $response['status'] = "OK";
+    $response['message'] = "Mise à jour des données de l'utilisateur : #" . $user->getId() . ' ' .  $user->getName();
+
+    return $response;
   }
 
 }

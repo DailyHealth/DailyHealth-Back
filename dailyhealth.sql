@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 14 Avril 2020 à 17:36
+-- Généré le :  Ven 17 Avril 2020 à 11:54
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -27,28 +27,30 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `dailystatut` (
-  `idDaily` int(11) NOT NULL,
+  `idDaily` int(11) NOT NULL AUTO_INCREMENT,
   `Temperature` float NOT NULL,
   `Poux` float NOT NULL,
   `Tiredness` int(11) NOT NULL,
   `Mood` varchar(255) NOT NULL,
   `idPatient` int(11) NOT NULL,
-  `date` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `date` varchar(255) NOT NULL,
+  PRIMARY KEY (`idDaily`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `note`
+-- Structure de la table `observation`
 --
 
-CREATE TABLE IF NOT EXISTS `note` (
-  `idNote` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `observation` (
+  `idObservation` int(11) NOT NULL AUTO_INCREMENT,
   `Sujet` varchar(255) NOT NULL,
   `Content` varchar(255) NOT NULL,
   `idPatient` int(11) NOT NULL,
   `idMedecin` int(11) NOT NULL,
-  PRIMARY KEY (`idNote`)
+  `date` varchar(255) NOT NULL,
+  PRIMARY KEY (`idObservation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------

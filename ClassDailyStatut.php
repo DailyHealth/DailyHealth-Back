@@ -11,14 +11,14 @@ Class DailyStatut {
   private $_date; // string
   private $_patientid; // string
 
-  function DailyStatut($id, $_temperature, $_poux, $_fatigue, $_mood, $_date, $_patientid){
-    $this->_id = $id;
-    $this->_temperature = $_temperature;
-    $this->_poux = $_poux;
-    $this->_fatigue = $_fatigue;
-    $this->_mood = $_mood;
-    $this->_date = $_date;
-    $this->_patientid = $_patientid;
+  function DailyStatut($id, $temperature, $poux, $fatigue, $mood, $date, $patientid){
+    $this->_id          = $id;
+    $this->_temperature = $temperature;
+    $this->_poux        = $poux;
+    $this->_fatigue     = $fatigue;
+    $this->_mood        = $mood;
+    $this->_date        = $date;
+    $this->_patientid   = $patientid;
 
   }
 

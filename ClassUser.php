@@ -16,16 +16,16 @@ Class User {
   private $_medecinid;
 
   function User($id, $type, $firstName, $lastName, $email, $password, $age, $height, $weight, $role, $medecinid){
-    $this->_id = $id;
-    $this->_type = $type;
+    $this->_id        = $id;
+    $this->_type      = $type;
     $this->_firstName = $firstName;
-    $this->_lastName = $lastName;
-    $this->_email = $email;
-    $this->_password = $password;
-    $this->_age = $age;
-    $this->_height = $height;
-    $this->_weight = $weight;
-    $this->_role = $role;
+    $this->_lastName  = $lastName;
+    $this->_email     = $email;
+    $this->_password  = $password;
+    $this->_age       = $age;
+    $this->_height    = $height;
+    $this->_weight    = $weight;
+    $this->_role      = $role;
     $this->_medecinid = $medecinid;
   }
 

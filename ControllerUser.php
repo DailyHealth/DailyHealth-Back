@@ -90,6 +90,7 @@ Class ControllerUser{
   }
 
   static public function getUser($data){
+
     $id = !empty($data["iduser"])  ? (int) $data["iduser"] : 0;
 
     try{

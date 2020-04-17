@@ -322,6 +322,81 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Zoom",
+			"item": [
+				{
+					"name": "CréationZoom",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"subject\":\"Visite anal\",\r\n\t\"content\":\"ça va bien se passer\",\r\n\t\"url\":\"aa.com\",\r\n\t\"patientid\":\"10\",\r\n\t\"medecinid\":\"15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/CreateZoom.php",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"CreateZoom.php"
+							]
+						},
+						"description": "Créer un utilisateur"
+					},
+					"response": []
+				},
+				{
+					"name": "GetZoom",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8050/api/getZoom.php?patientid=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8050",
+							"path": [
+								"api",
+								"getZoom.php"
+							],
+							"query": [
+								{
+									"key": "patientid",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"protocolProfileBehavior": {}

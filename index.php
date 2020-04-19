@@ -1,10 +1,12 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+
 // ---------------------------- BASE DE DONNEEE ------------------------
-define( 'DB_SERVER', "localhost" );
-define( 'DB_DATABASE', "dailyhealth" );
-define( 'DB_NAME', "root" );
-define( 'DB_PASS', "" );
+define( 'DB_SERVER', "mysql-freelancerdata.alwaysdata.net" );
+define( 'DB_DATABASE', "freelancerdata_dailyhealth" );
+define( 'DB_NAME', "179860_corentin" );
+define( 'DB_PASS', "Admin123456789+" );
 
 define( 'DB_USER', "user" );
 define( 'DB_DAILY', "dailystatut" );
@@ -85,12 +87,17 @@ function redirectApi( $data ){
 
 function connect_to_db(){
   try{
-    $db = new PDO("mysql:host=" . DB_SERVER, DB_NAME, DB_PASS); // Initialise la
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Connection
+    // $bdd = new PDO('mysql:host=mysql.toto.alwaysdata.net ;dbname=toto_qcd','toto','password');
+    $db = new PDO("mysql:host=mysql-freelancerdata.alwaysdata.net;dbname=freelancerdata_dailyhealth", "179860_corentin", "Admin123456789+");
+    // $db = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_DATABASE . ", " . DB_NAME . ", " . DB_PASS);
+
+     // Initialise la
+    // $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Connection
     // $db->query("CREATE DATABASE IF NOT EXISTS " . DB_DATABASE ); // A la base
-    $db->query("use " . DB_DATABASE); // de donnée
-    $db = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_DATABASE . ";charset=utf8", DB_NAME, DB_PASS);
+    // $db->query("use " . DB_DATABASE); // de donnée
+    // $db = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_DATABASE . ";charset=utf8", DB_NAME, DB_PASS);
   } catch ( PDOException $e) {
+    echo'<pre>'; echo print_r( $e ); echo '</pre>';
     echo 'Error connection DB'; exit;
   }
   return $db;

@@ -1,5 +1,5 @@
 <?php
-include("/ClassUser.php");
+include("./ClassUser.php");
 
 
 Class ControllerUser{

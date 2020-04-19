@@ -1,5 +1,5 @@
 <?php
-include("/ClassZoom.php");
+include("./ClassZoom.php");
 
 
 Class ControllerZoom{

@@ -1,5 +1,5 @@
 <?php
-include("/ClassDailyStatut.php");
+include("./ClassDailyStatut.php");
 
 
 Class ControllerDailyStatut{

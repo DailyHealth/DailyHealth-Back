@@ -1,6 +1,5 @@
 <?php
-include("./ClassDailyStatut.php");
-
+include(posix_getcwd() . "/ClassDailyStatut.php");
 
 Class ControllerDailyStatut{
 

@@ -1,5 +1,5 @@
 <?php
-include(posix_getcwd() . "/ClassUser.php");
+include("../ClassUser.php");
 
 
 Class ControllerUser{

@@ -1,5 +1,5 @@
 <?php
-
+include_path('.:/app/.heroku/php/lib/php');
 header("Access-Control-Allow-Origin: *");
 
 // ---------------------------- BASE DE DONNEEE ------------------------
@@ -24,10 +24,10 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // ---------------------------- REQUIRE FILE ------------------------
 
-require(posix_getcwd() . "/../ControllerUser.php");
-require(posix_getcwd() . "/../ControllerDailyStatut.php");
-require(posix_getcwd() . "/../ControllerObservation.php");
-require(posix_getcwd() . "/../ControllerZoom.php");
+require("./ControllerUser.php");
+require("./ControllerDailyStatut.php");
+require("./ControllerObservation.php");
+require("./ControllerZoom.php");
 
 
 function redirectApi( $data ){

@@ -1,5 +1,5 @@
 <?php
-include(posix_getcwd() . "/ClassZoom.php");
+include("../ClassZoom.php");
 
 
 Class ControllerZoom{

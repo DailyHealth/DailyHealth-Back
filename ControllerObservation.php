@@ -1,5 +1,5 @@
 <?php
-include(posix_getcwd() . "/ClassObservation.php");
+include("../ClassObservation.php");
 
 
 Class ControllerObservation{

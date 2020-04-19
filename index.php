@@ -24,10 +24,10 @@ header("Content-Type: application/json; charset=UTF-8");
 
 // ---------------------------- REQUIRE FILE ------------------------
 
-require("./ControllerUser.php");
-require("./ControllerDailyStatut.php");
-require("./ControllerObservation.php");
-require("./ControllerZoom.php");
+require("/ControllerUser.php");
+require("/ControllerDailyStatut.php");
+require("/ControllerObservation.php");
+require("/ControllerZoom.php");
 
 
 function redirectApi( $data ){
